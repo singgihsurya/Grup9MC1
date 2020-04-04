@@ -33,7 +33,7 @@
         <!--Foodventure-->
         <scene sceneID="b13-8j-miL">
             <objects>
-                <viewController id="UKK-Es-nR3" sceneMemberID="viewController">
+                <viewController id="UKK-Es-nR3" customClass="FoodventureViewController" customModule="Grup9MC1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F3U-NS-ylZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

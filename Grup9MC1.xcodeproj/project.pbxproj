@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1517A84243908920040C21F /* FoodventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1517A83243908920040C21F /* FoodventureViewController.swift */; };
+		A1517A86243908A80040C21F /* Foodventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1517A85243908A80040C21F /* Foodventure.swift */; };
 		E9AEED692435D4600043A8AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEED682435D4600043A8AB /* AppDelegate.swift */; };
 		E9AEED6B2435D4600043A8AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEED6A2435D4600043A8AB /* SceneDelegate.swift */; };
 		E9AEED6D2435D4600043A8AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEED6C2435D4600043A8AB /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1517A83243908920040C21F /* FoodventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodventureViewController.swift; sourceTree = "<group>"; };
+		A1517A85243908A80040C21F /* Foodventure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodventure.swift; sourceTree = "<group>"; };
 		E9AEED652435D4600043A8AB /* Grup9MC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grup9MC1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AEED682435D4600043A8AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9AEED6A2435D4600043A8AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				E9FC90312438290E00AB36CD /* Tabbar.storyboard */,
 				E9FC90352438300700AB36CD /* AchievementViewController.swift */,
 				E9FC903924383AB600AB36CD /* Achievement.swift */,
+				A1517A83243908920040C21F /* FoodventureViewController.swift */,
+				A1517A85243908A80040C21F /* Foodventure.swift */,
 			);
 			path = Grup9MC1;
 			sourceTree = "<group>";
@@ -150,9 +156,11 @@
 			files = (
 				E9AEED6D2435D4600043A8AB /* ViewController.swift in Sources */,
 				E9AEED692435D4600043A8AB /* AppDelegate.swift in Sources */,
+				A1517A84243908920040C21F /* FoodventureViewController.swift in Sources */,
 				E9FC90362438300700AB36CD /* AchievementViewController.swift in Sources */,
 				E9AEED6B2435D4600043A8AB /* SceneDelegate.swift in Sources */,
 				E9FC903A24383AB600AB36CD /* Achievement.swift in Sources */,
+				A1517A86243908A80040C21F /* Foodventure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
