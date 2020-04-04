@@ -8,9 +8,6 @@
 
 import UIKit
 
-var dataAchievementDailyLogin = [BadgesDailyLogin]()
-var dataAchievementPunctual = [BadgesPunctual]()
-
 class AchievementViewController: UIViewController{
     override func viewDidLoad() {
             super.viewDidLoad()

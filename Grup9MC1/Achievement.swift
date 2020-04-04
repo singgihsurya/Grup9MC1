@@ -6,11 +6,9 @@
 //  Copyright © 2020 Singgih Surya Dharma. All rights reserved.
 //
 
-struct BadgesDailyLogin {
+struct Badges{
     var title: String?
     var imageName: String?
+    var desc: String?
 }
-struct BadgesPunctual {
-    var title: String?
-    var imageName: String?
-}
+
