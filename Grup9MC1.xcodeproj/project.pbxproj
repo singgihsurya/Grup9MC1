@@ -13,7 +13,7 @@
 		E9AEED702435D4600043A8AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AEED6E2435D4600043A8AB /* Main.storyboard */; };
 		E9AEED722435D4610043A8AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AEED712435D4610043A8AB /* Assets.xcassets */; };
 		E9AEED752435D4610043A8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AEED732435D4610043A8AB /* LaunchScreen.storyboard */; };
-		E9FC90322438290E00AB36CD /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FC90312438290E00AB36CD /* Achievement.storyboard */; };
+		E9FC90322438290E00AB36CD /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FC90312438290E00AB36CD /* Tabbar.storyboard */; };
 		E9FC90362438300700AB36CD /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC90352438300700AB36CD /* AchievementViewController.swift */; };
 		E9FC903A24383AB600AB36CD /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC903924383AB600AB36CD /* Achievement.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		E9AEED712435D4610043A8AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9AEED742435D4610043A8AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9AEED762435D4610043A8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9FC90312438290E00AB36CD /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
+		E9FC90312438290E00AB36CD /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		E9FC90352438300700AB36CD /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		E9FC903924383AB600AB36CD /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +69,7 @@
 				E9AEED712435D4610043A8AB /* Assets.xcassets */,
 				E9AEED732435D4610043A8AB /* LaunchScreen.storyboard */,
 				E9AEED762435D4610043A8AB /* Info.plist */,
-				E9FC90312438290E00AB36CD /* Achievement.storyboard */,
+				E9FC90312438290E00AB36CD /* Tabbar.storyboard */,
 				E9FC90352438300700AB36CD /* AchievementViewController.swift */,
 				E9FC903924383AB600AB36CD /* Achievement.swift */,
 			);
@@ -136,7 +136,7 @@
 			files = (
 				E9AEED752435D4610043A8AB /* LaunchScreen.storyboard in Resources */,
 				E9AEED722435D4610043A8AB /* Assets.xcassets in Resources */,
-				E9FC90322438290E00AB36CD /* Achievement.storyboard in Resources */,
+				E9FC90322438290E00AB36CD /* Tabbar.storyboard in Resources */,
 				E9AEED702435D4600043A8AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
