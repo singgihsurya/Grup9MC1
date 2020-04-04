@@ -11,7 +11,10 @@ import UIKit
 class AchievementCollectionViewCell: UICollectionViewCell {
     
 
-    @IBOutlet weak var imageBadges: UIImageView!
-    @IBOutlet weak var labelBadges: UILabel!
+    @IBOutlet weak var imageBadgesDailyLogin: UIImageView!
+    @IBOutlet weak var labelBadgesDailyLogin: UILabel!
     
+    
+    @IBOutlet weak var imageBadgesPunctual: UIImageView!
+    @IBOutlet weak var labelBadgesPunctual: UILabel!
 }

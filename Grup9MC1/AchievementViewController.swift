@@ -8,32 +8,46 @@
 
 import UIKit
 
-var dataAchievement = [Emoji]()
+var dataAchievementDailyLogin = [BadgesDailyLogin]()
+var dataAchievementPunctual = [BadgesPunctual]()
 
 class AchievementViewController: UIViewController{
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewDailyLogin: UICollectionView!
+    @IBOutlet weak var collectionViewPunctual: UICollectionView!
     
     override func viewDidLoad() {
             super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        initDataEmoji()
+        collectionViewDailyLogin.delegate = self
+        collectionViewDailyLogin.dataSource = self
+        collectionViewPunctual.delegate = self
+        collectionViewPunctual.dataSource = self
+        initDataDailyLogin()
+        initDataPunctual()
            //Do any additional setup after loading the view.
        }
+    func initDataPunctual(){
+        let awal = BadgesPunctual(title: "Angry", imageName: "Char1Red")
+        let tengah = BadgesPunctual(title: "Angry", imageName: "Char1Red")
+        let akhir = BadgesPunctual(title: "Angry", imageName: "Char1Red")
+        
+        dataAchievementPunctual.append(awal)
+        dataAchievementPunctual.append(tengah)
+        dataAchievementPunctual.append(akhir)
+        
+        collectionViewPunctual.reloadData()
+    }
     
-    func initDataEmoji() {
-        let angry = Emoji(title: "Angry", imageName: "Char1Yellow")
-        let bored = Emoji(title: "Angry", imageName: "Char1Yellow")
-        let confused = Emoji(title: "Angry", imageName: "Char1Yellow")
+    func initDataDailyLogin() {
+        let angry = BadgesDailyLogin(title: "Angry", imageName: "Char1Yellow")
+        let bored = BadgesDailyLogin(title: "Angry", imageName: "Char1Yellow")
+        let confused = BadgesDailyLogin(title: "Angry", imageName: "Char1Yellow")
       
-        dataAchievement.append(angry)
-        dataAchievement.append(bored)
-        dataAchievement.append(confused)
-        
-        
-        collectionView.reloadData()
-        print("x")
+        dataAchievementDailyLogin.append(angry)
+        dataAchievementDailyLogin.append(bored)
+        dataAchievementDailyLogin.append(confused)
+   
+        collectionViewDailyLogin.reloadData()
     }
 
 }
@@ -42,25 +56,41 @@ extension AchievementViewController: UICollectionViewDelegate, UICollectionViewD
     // MARK: Menentukan jumlah item yang akan di tampilkan
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // MARK: Menghitung jumlah item array dataEmojies
-        return dataAchievement.count
+        var n = 0
+        if collectionView == self.collectionViewDailyLogin{
+            n =  dataAchievementDailyLogin.count
+        }else if collectionView == self.collectionViewPunctual{
+            n = dataAchievementPunctual.count
+        }
+        return n
     }
     
     // MARK: mengatur view cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewCellAchievement", for: indexPath) as! AchievementCollectionViewCell
+        if collectionView == self.collectionViewDailyLogin{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewCellAchievementDailyLogin", for: indexPath) as! AchievementCollectionViewCell
 
-        // set nilai ke view dalam cell
-        let emoji = dataAchievement[indexPath.row]
-        cell.labelBadges.text = emoji.title!
-        cell.imageBadges.image = UIImage(named: emoji.imageName!)
+            // set nilai ke view dalam cell
+            let badgesDailyLogin = dataAchievementDailyLogin[indexPath.row]
+            cell.labelBadgesDailyLogin.text = badgesDailyLogin.title!
+            cell.imageBadgesDailyLogin.image = UIImage(named: badgesDailyLogin.imageName!)
 
-        return cell
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "viewCellAchievementPunctual", for: indexPath) as! AchievementCollectionViewCell
+
+            // set nilai ke view dalam cell
+            let badgesPunctual = dataAchievementPunctual[indexPath.row]
+            cell.labelBadgesPunctual.text = badgesPunctual.title!
+            cell.imageBadgesPunctual.image = UIImage(named: badgesPunctual.imageName!)
+            return cell
+        }
+      
     }
 
     // MARK: mengatur layout view cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Lebar & tinggil cell
-        return CGSize(width: 100, height: 120)
+        return CGSize(width: 90, height: 150)
     }
 }

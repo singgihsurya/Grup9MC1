@@ -6,7 +6,11 @@
 //  Copyright © 2020 Singgih Surya Dharma. All rights reserved.
 //
 
-struct Emoji {
- var title: String?
- var imageName: String?
+struct BadgesDailyLogin {
+    var title: String?
+    var imageName: String?
+}
+struct BadgesPunctual {
+    var title: String?
+    var imageName: String?
 }
