@@ -15,7 +15,6 @@
 		E9AEED752435D4610043A8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AEED732435D4610043A8AB /* LaunchScreen.storyboard */; };
 		E9FC90322438290E00AB36CD /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FC90312438290E00AB36CD /* Achievement.storyboard */; };
 		E9FC90362438300700AB36CD /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC90352438300700AB36CD /* AchievementViewController.swift */; };
-		E9FC9038243837B400AB36CD /* AchievementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC9037243837B400AB36CD /* AchievementCollectionViewCell.swift */; };
 		E9FC903A24383AB600AB36CD /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC903924383AB600AB36CD /* Achievement.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		E9AEED762435D4610043A8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9FC90312438290E00AB36CD /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
 		E9FC90352438300700AB36CD /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
-		E9FC9037243837B400AB36CD /* AchievementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9FC903924383AB600AB36CD /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +71,6 @@
 				E9AEED762435D4610043A8AB /* Info.plist */,
 				E9FC90312438290E00AB36CD /* Achievement.storyboard */,
 				E9FC90352438300700AB36CD /* AchievementViewController.swift */,
-				E9FC9037243837B400AB36CD /* AchievementCollectionViewCell.swift */,
 				E9FC903924383AB600AB36CD /* Achievement.swift */,
 			);
 			path = Grup9MC1;
@@ -151,7 +148,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9FC9038243837B400AB36CD /* AchievementCollectionViewCell.swift in Sources */,
 				E9AEED6D2435D4600043A8AB /* ViewController.swift in Sources */,
 				E9AEED692435D4600043A8AB /* AppDelegate.swift in Sources */,
 				E9FC90362438300700AB36CD /* AchievementViewController.swift in Sources */,
