@@ -4,31 +4,80 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Achievement-->
         <scene sceneID="OiK-By-80R">
             <objects>
-                <viewController id="aNe-Ug-oRu" customClass="AchievementViewController" customModule="Grup9MC1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aNe-Ug-oRu" customClass="AchievementVC" customModule="Grup9MC1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MEc-hc-VIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxj-cw-adW">
-                                <rect key="frame" x="91" y="401" width="54" height="34"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Sw-aj-bFc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QVZ-tO-vse">
+                                    <size key="itemSize" width="414" height="142"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="achievementCell" id="LVN-jX-0ng" customClass="AchievementCell" customModule="Grup9MC1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xrF-PE-nL0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K41-eu-RQI">
+                                                    <rect key="frame" x="20" y="7" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUA-wA-94i">
+                                                    <rect key="frame" x="20" y="112" width="100" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="142"/>
+                                        <connections>
+                                            <outlet property="achievementImage" destination="K41-eu-RQI" id="AeB-Yr-agt"/>
+                                            <outlet property="achievementLabel" destination="XUA-wA-94i" id="142-yg-Oui"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dt3-mu-Aq2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Achievement" id="lN3-Ci-3QM"/>
+                    <connections>
+                        <outlet property="collectionView" destination="4Sw-aj-bFc" id="8Zf-yU-T2J"/>
+                        <segue destination="SDX-l9-h9a" kind="show" identifier="detailAchievementSegue" id="rpR-qu-pog"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQc-ZP-Crq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108.6956521739132" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1108.6956521739132" y="183.48214285714286"/>
+        </scene>
+        <!--DetailAchievement-->
+        <scene sceneID="b4R-VR-NgT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailAchievement" storyboardName="DetailAchievement" id="SDX-l9-h9a" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="09r-A0-mwq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hp6-bT-OYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="78"/>
         </scene>
         <!--Foodventure-->
         <scene sceneID="b13-8j-miL">
