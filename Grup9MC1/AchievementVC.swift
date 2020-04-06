@@ -24,8 +24,8 @@ class AchievementVC: UIViewController {
     
     func initDataAchievement() {
      let angry = Achievement(title: "angry", imageName: "Char1Red")
-     let bored = Achievement(title: "bored", imageName: "Char1Red")
-     let confused = Achievement(title: "confused", imageName: "Char1Red")
+     let bored = Achievement(title: "bored", imageName: "Char1Yellow")
+     let confused = Achievement(title: "confused", imageName: "Char1Green")
      
      dataAchievement.append(angry)
      dataAchievement.append(bored)
@@ -72,12 +72,11 @@ extension AchievementVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         //print(achievement)
         tempImgAchievement = achievement.imageName!
         tempLblAchievement = achievement.title!
-        print(tempImgAchievement)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailAchievementSegue"{
             if let destination = segue.destination as? DetailAchievementVC{
-                destination.achievementlbl = tempLblAchievement
+                destination.initAchievement(achievement: sender as! Achievement)
             }
             
         }
