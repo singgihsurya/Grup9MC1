@@ -19,18 +19,37 @@ class AchievementVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         initDataAchievement()
+        collectionView.backgroundColor = #colorLiteral(red: 0.8945240378, green: 0.8995351195, blue: 0.9118962884, alpha: 1)
         // Do any additional setup after loading the view.
     }
     
     func initDataAchievement() {
-     let angry = Achievement(title: "angry", imageName: "Char1Red")
-     let bored = Achievement(title: "bored", imageName: "Char1Yellow")
-     let confused = Achievement(title: "confused", imageName: "Char1Green")
-     
-     dataAchievement.append(angry)
-     dataAchievement.append(bored)
-     dataAchievement.append(confused)
-     
+        let day1 = Achievement(title: "1 Day", imageName: "1_days_clear")
+        let day7 = Achievement(title: "7 Day", imageName: "7_days_clear")
+        let day30 = Achievement(title: "30 Day", imageName: "30_days_clear")
+
+        let level5 = Achievement(title: "Level 5", imageName: "level_5_clear")
+        let level10 = Achievement(title: "Level 10", imageName: "level_10_clear")
+        let level20 = Achievement(title: "Level 20", imageName: "level_20_clear")
+        let level50 = Achievement(title: "Level 50", imageName: "level_50_clear")
+        let level100 = Achievement(title: "Level 100", imageName: "level_100_clear")
+        
+        let clear1day = Achievement(title: "Clear 1 Day", imageName: "makan_1_hari_clear")
+        let clear7day = Achievement(title: "Clear 7 Day", imageName: "makan_7_hari_clear")
+        let clear30day = Achievement(title: "Clear 30 Day", imageName: "makan_30_hari_clear")
+      
+        dataAchievement.append(day1)
+        dataAchievement.append(day7)
+        dataAchievement.append(day30)
+        dataAchievement.append(level5)
+        dataAchievement.append(level10)
+        dataAchievement.append(level20)
+        dataAchievement.append(level50)
+        dataAchievement.append(level100)
+        dataAchievement.append(clear1day)
+        dataAchievement.append(clear7day)
+        dataAchievement.append(clear30day)
+        
      
      // trigger refresh collection view
      collectionView.reloadData()
@@ -64,7 +83,7 @@ extension AchievementVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     // MARK: mengatur layout view cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Lebar & tinggil cell
-        return CGSize(width: 120, height: 150)
+        return CGSize(width: 110, height: 200)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let achievement = dataAchievement[indexPath.row]
