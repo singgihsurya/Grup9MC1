@@ -12,3 +12,9 @@ struct Foodventures {
     var username: String
     var progress: Int
 }
+
+struct Notification {
+    var remind: String
+    var routine: String
+    var experience: Int
+}
