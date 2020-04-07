@@ -24,7 +24,7 @@ class AchievementVC: UIViewController {
     }
     
     func initDataAchievement() {
-        let day1 = Achievement(title: "1 Day", imageName: "1_days_clear")
+        let day1 = Achievement(title: "1 Day", imageName: "tes")
         let day7 = Achievement(title: "7 Day", imageName: "7_days_clear")
         let day30 = Achievement(title: "30 Day", imageName: "30_days_clear")
 
