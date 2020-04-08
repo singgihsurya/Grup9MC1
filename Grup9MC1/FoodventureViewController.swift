@@ -11,14 +11,24 @@
 import UIKit
 
 private let reuseIdentifier = "notificationCell"
+let userDefault = UserDefaults.standard
+var temptime = [String]()
+var tempeat = [String]()
+var tempdate = [String]()
+private var timeString: String = ""
+var dateString: String = ""
 
-var indexPathSelected: IndexPath!
 var selectedNotification = 0
 
-var notifications = [
-    Notification(remind: "09.00 AM", routine: "Breakfast", experience: 10),
-    Notification(remind: "12.30 PM", routine: "Lunch", experience: 30),
-    Notification(remind: "07.00 PM", routine: "Dinner", experience: 20),
+//var notifications = [
+//    Notification(remind: "09.00 AM", routine: "Breakfast", experience: 10),
+//    Notification(remind: "12.30 PM", routine: "Lunch", experience: 30),
+//    Notification(remind: "07.00 PM", routine: "Dinner", experience: 20),
+//]
+var experience = [
+    "Breakfast": 10,
+    "Lunch": 30,
+    "Dinner": 20,
 ]
 
 var totalExperience = 500
@@ -43,6 +53,25 @@ class FoodventureViewController: UIViewController {
         levelLabelVC = levelLabel
         tableViewVC = tableView
         super.viewDidLoad()
+        if let loadMakan = userDefault.stringArray(forKey: "makan"){
+            tempeat = loadMakan
+        }
+        if let loadTime = userDefault.stringArray(forKey: "waktu"){
+            temptime = loadTime
+        }
+        if let loadDate = userDefault.stringArray(forKey: "tanggal"){
+            tempdate = loadDate
+        }
+//        current time
+        let timeformatter = DateFormatter()
+        timeformatter.timeStyle = .short
+        timeString = timeformatter.string(from: Date())
+//                print(TimeString)
+//                current date
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .short
+        dateString = dateformatter.string(from: Date())
+//                print(DateString)
     }
 }
 
@@ -52,26 +81,36 @@ extension FoodventureViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notifications.count
+        var tempCount = 0
+        for date in tempdate {
+            if date == dateString {
+                tempCount += 1
+            }
+        }
+        return tempCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let notification = notifications[indexPath.row]
+        let eat = tempeat[indexPath.row]
+        let time = temptime[indexPath.row]
+        let date = tempdate[indexPath.row]
+//        let notification = notifications[indexPath.row]
 //        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 //        cell.textLabel?.text = notification.remind
 //        cell.detailTextLabel?.text = String(notification.experience)
 //        return cell
         if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? NotificationCell {
-            cell.remindLabel.text = notification.remind
-            cell.routineLabel.text = notification.routine
-            cell.experienceLabel.text = String(notification.experience) + " FP"
-            return cell
+            if date == dateString {
+                cell.remindLabel.text = time
+                cell.routineLabel.text = eat
+                cell.experienceLabel.text = String(experience[eat]!) + " FP"
+                return cell
+            }
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPathSelected = indexPath
         selectedNotification = indexPath.row
     }
 }
