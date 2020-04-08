@@ -13,7 +13,7 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var temptime = [String]()
     var tempeat = [String]()
     var tempdate = [String]()
-    
+    var selectedIndexPath: NSIndexPath = NSIndexPath()
     @IBOutlet weak var listTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +50,14 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
         cell.textLabel?.text = temptime[indexPath.row]
-        cell.detailTextLabel?.text =  tempeat[indexPath.row] + " " + tempdate[indexPath.row]
+        cell.detailTextLabel?.text =  tempeat[indexPath.row] + " Time" 
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath as NSIndexPath
+        self.performSegue(withIdentifier: "editSegue", sender: self)
+    }
+    
     
     
 
