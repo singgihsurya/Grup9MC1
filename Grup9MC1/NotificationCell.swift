@@ -9,6 +9,7 @@
 import UIKit
 
 class NotificationCell: UITableViewCell {
+    
     @IBOutlet weak var remindLabel: UILabel!
     @IBOutlet weak var routineLabel: UILabel!
     @IBOutlet weak var experienceLabel: UILabel!
@@ -16,22 +17,39 @@ class NotificationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))  //Long function will call when user long press on button.
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long(gestureRecognizer:)))  //Long function will call when user long press on button.
         
         experienceLabel.addGestureRecognizer(longGesture)
     }
     
-    @objc func long() {
-        if tempeat.count > 0 && tempdate[selectedNotification] == dateString{
-            totalExperience += experience[tempeat[selectedNotification]]!
-            progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
-            progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
-            tempeat.remove(at: selectedNotification)
-            tempdate.remove(at: selectedNotification)
-            temptime.remove(at: selectedNotification)
-            userDefault.set(tempeat, forKey: "makan")
-            userDefault.set(tempdate, forKey: "tanggal")
-            userDefault.set(temptime, forKey: "waktu")
+    @objc func long(gestureRecognizer: UIGestureRecognizer) {
+        var tempIndex = 0
+        var countIndex = 0
+        var flag = false
+        if gestureRecognizer.state == .began {
+            for date in tempdate {
+                if date == dateString{
+                    countIndex += 1
+                }
+                if countIndex - 1 == selectedNotification {
+                    flag = true
+                    break
+                }
+                tempIndex += 1
+            }
+            if flag {
+                totalExperience += experience[tempeat[tempIndex]]!
+                progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
+                progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
+                tempeat.remove(at: tempIndex)
+                tempdate.remove(at: tempIndex)
+                temptime.remove(at: tempIndex)
+                userDefault.set(tempeat, forKey: "makan")
+                userDefault.set(tempdate, forKey: "tanggal")
+                userDefault.set(temptime, forKey: "waktu")
+            }
+        }
+        if gestureRecognizer.state == .ended {            
             userDefault.synchronize()
             tableViewVC.reloadData()
             countExperience()

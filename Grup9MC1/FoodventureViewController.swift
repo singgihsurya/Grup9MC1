@@ -40,6 +40,8 @@ var tableViewVC: UITableView!
 
 class FoodventureViewController: UIViewController {
     
+    var countArr = 0
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var progressBar: UIView!
@@ -72,6 +74,8 @@ class FoodventureViewController: UIViewController {
         dateformatter.dateStyle = .short
         dateString = dateformatter.string(from: Date())
 //                print(DateString)
+        progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
+        progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
     }
 }
 
@@ -81,19 +85,47 @@ extension FoodventureViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var tempCount = 0
+        var flag = false
+        countArr = 0
         for date in tempdate {
             if date == dateString {
-                tempCount += 1
+                countArr += 1
+                flag = true
             }
         }
-        return tempCount
+        if flag {
+            return countArr
+        }else{
+            return tempdate.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let eat = tempeat[indexPath.row]
-        let time = temptime[indexPath.row]
-        let date = tempdate[indexPath.row]
+        var tempIndex = 0
+        var flag = false
+        if countArr < tempdate.count && countArr != 0{
+            flag = true
+            var countIndex = 0
+            for date in tempdate {
+                if date == dateString{
+                    countIndex += 1
+                }
+                if countIndex - 1 >= indexPath.row {
+                    break
+                }
+                tempIndex += 1
+            }
+        }
+        let eat, time, date: String
+        if flag {
+            eat = tempeat[tempIndex]
+            time = temptime[tempIndex]
+            date = tempdate[tempIndex]
+        }else{
+            eat = tempeat[indexPath.row]
+            time = temptime[indexPath.row]
+            date = tempdate[indexPath.row]
+        }
 //        let notification = notifications[indexPath.row]
 //        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 //        cell.textLabel?.text = notification.remind
