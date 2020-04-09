@@ -22,11 +22,17 @@ class NotificationCell: UITableViewCell {
     }
     
     @objc func long() {
-        if notifications.count > 0 {
-            totalExperience += notifications[selectedNotification].experience
+        if tempeat.count > 0 && tempdate[selectedNotification] == dateString{
+            totalExperience += experience[tempeat[selectedNotification]]!
             progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
             progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
-            notifications.remove(at: selectedNotification)
+            tempeat.remove(at: selectedNotification)
+            tempdate.remove(at: selectedNotification)
+            temptime.remove(at: selectedNotification)
+            userDefault.set(tempeat, forKey: "makan")
+            userDefault.set(tempdate, forKey: "tanggal")
+            userDefault.set(temptime, forKey: "waktu")
+            userDefault.synchronize()
             tableViewVC.reloadData()
             countExperience()
         }
