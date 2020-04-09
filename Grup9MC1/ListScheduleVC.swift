@@ -14,6 +14,8 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tempeat = [String]()
     var tempdate = [String]()
     var selectedIndexPath: NSIndexPath = NSIndexPath()
+    var index = 999
+    
     @IBOutlet weak var listTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +57,19 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath as NSIndexPath
+        index = indexPath.row
+        print(index)
         self.performSegue(withIdentifier: "editSegue", sender: self)
+        index = 999
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editSegue"{
+            if let destination = segue.destination as? TimeManageVC{
+                destination.indexOperan = index
+            }
+        }
+    }
     
     
 
