@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var currentIndex = 0
 class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     var setTime = ""
     var setCategoryMakan =  ""
@@ -27,6 +27,8 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     var tempdate = [String]()
     var temptime = [String]()
     
+    var indexOperan = 999
+    
     
     @IBOutlet weak var pickerCategoryMakan: UIPickerView!
     
@@ -35,7 +37,22 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         pickerCategoryMakan.delegate = self
         pickerCategoryMakan.dataSource = self
         arraycategoryMakan =  ["Breakfast", "Lunch", "Dinner"]
-        
+        currentIndex = 0
+        let defaultload = UserDefaults.standard
+        //        loadMakan = defaultload.stringArray(forKey: "makan") ?? [""]
+        //        loadTime = defaultload.stringArray(forKey: "waktu") ?? [""]
+        //        loadDate = defaultload.stringArray(forKey: "tanggal") ?? [""]
+                
+                if let loadMakan = defaultload.stringArray(forKey: "makan") as? [String]{
+                   tempeat = loadMakan
+                }
+                if let loadTime = defaultload.stringArray(forKey: "waktu") as? [String]{
+                   temptime = loadTime
+                }
+                if let loadDate = defaultload.stringArray(forKey: "tanggal") as? [String]{
+                   tempdate = loadDate
+                }
+        initEditPicker(index: indexOperan)
         
         //current time
 //        let timeformatter = DateFormatter()
@@ -84,23 +101,28 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         setDate =  strDate
         
     }
+    func initEditPicker(index: Int){
+        if index == 999{
+            
+        }else{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            if let time = dateFormatter.date(from: temptime[index]) {
+                timePicker.date = time
+            }
+            if tempeat[index] == "Breakfast"{
+                pickerCategoryMakan.selectRow(0, inComponent: 0, animated: true)
+            } else if tempeat[index] == "Lunch"{
+                pickerCategoryMakan.selectRow(1, inComponent: 0, animated: true)
+            } else if tempeat[index] == "Dinner"{
+                pickerCategoryMakan.selectRow(2, inComponent: 0, animated: true)
+            }
+            
+        }
+        
+    }
     
     @IBAction func saveBtn(_ sender: Any) {
-        
-        let defaultload = UserDefaults.standard
-//        loadMakan = defaultload.stringArray(forKey: "makan") ?? [""]
-//        loadTime = defaultload.stringArray(forKey: "waktu") ?? [""]
-//        loadDate = defaultload.stringArray(forKey: "tanggal") ?? [""]
-        
-        if let loadMakan = defaultload.stringArray(forKey: "makan") as? [String]{
-           tempeat = loadMakan
-        }
-        if let loadTime = defaultload.stringArray(forKey: "waktu") as? [String]{
-           temptime = loadTime
-        }
-        if let loadDate = defaultload.stringArray(forKey: "tanggal") as? [String]{
-           tempdate = loadDate
-        }
         
         arrayDate = tempdate
         arrayMakan = tempeat
@@ -111,18 +133,42 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
             setCategoryMakan = "Breakfast"
         }
         
+        //replace value of array
+        //var longArr = arrayMakan.count
+            
+            var keterangan = replaceArrayValue(setCategoryMakan: setCategoryMakan)
+            print(keterangan)
+            if keterangan == "tidakada"{
+                arrayTime.append(setTime)
+                arrayMakan.append(setCategoryMakan)
+                arrayDate.append(setDate)
+                print(arrayMakan, arrayTime, arrayDate)
+            }else{
+                arrayTime[currentIndex] = setTime
+                arrayMakan[currentIndex] = setCategoryMakan
+                arrayDate[currentIndex] = setDate
+
+              
+            }
+            let defaultsave =  UserDefaults.standard
+            defaultsave.set(arrayMakan, forKey: "makan")
+            defaultsave.set(arrayTime, forKey: "waktu")
+            defaultsave.set(arrayDate, forKey: "tanggal")
+            
+        }
         
-        arrayTime.append(setTime)
-        arrayMakan.append(setCategoryMakan)
-        arrayDate.append(setDate)
-        
-        let defaultsave =  UserDefaults.standard
-        defaultsave.set(arrayMakan, forKey: "makan")
-        defaultsave.set(arrayTime, forKey: "waktu")
-        defaultsave.set(arrayDate, forKey: "tanggal")
-        
-        print(arrayMakan, arrayTime, arrayDate)
-        
-        
-    }
+        func replaceArrayValue(setCategoryMakan: String) -> String  {
+            
+            var keterangan = ""
+            for name in arrayMakan{
+                if name == setCategoryMakan{
+                    keterangan = "ada"
+                    return keterangan
+                    break
+                }
+                currentIndex+=1
+            }
+            keterangan = "tidakada"
+            return keterangan
+        }
 }

@@ -92,7 +92,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bxW-qt-av8">
-                                <rect key="frame" x="0.0" y="145" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="145" width="414" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -117,6 +117,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lXS-JN-o9k">
+                                                    <rect key="frame" x="357" y="13" width="29" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -127,7 +131,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="nvj-lc-FoM" kind="presentation" id="Dth-F3-cW5"/>
+                                    <segue destination="nvj-lc-FoM" kind="presentation" identifier="editSegue" id="Dth-F3-cW5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,7 +151,7 @@
         <!--TimeManage-->
         <scene sceneID="qEB-a1-mRv">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="timeManage" storyboardName="TimeManage" id="nvj-lc-FoM" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="TimeManage" id="nvj-lc-FoM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TT4-4W-GXG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3172" y="-196"/>
@@ -297,6 +301,7 @@
     <resources>
         <image name="1_days_clear-removebg-preview" width="187" height="191"/>
         <image name="Oval_bq_main" width="828" height="822"/>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
