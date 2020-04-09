@@ -21,7 +21,7 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
-        
+        listTableView.isScrollEnabled = false
         let defaultload = UserDefaults.standard
 //        loadMakan = defaultload.stringArray(forKey: "makan") ?? [""]
 //        loadTime = defaultload.stringArray(forKey: "waktu") ?? [""]
