@@ -13,6 +13,8 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var temptime = [String]()
     var tempeat = [String]()
     var tempdate = [String]()
+    var tempLogin = 0
+    var templastLogin = ""
     var selectedIndexPath: NSIndexPath = NSIndexPath()
     var index = 999
     
@@ -36,11 +38,83 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let loadDate = defaultload.stringArray(forKey: "tanggal") as? [String]{
             tempdate = loadDate
         }
+        if let loadLastLogin = defaultload.string(forKey: "lastlogin") as? String{
+            templastLogin = loadLastLogin
+        }
+        if let loadLogin = defaultload.integer(forKey: "login") as? Int{
+            tempLogin = loadLogin
+        }
+        initCheckLogin()
         
         
+        /// visit apps daily
+        //                //daily login check
+        //                let logindefault = UserDefaults.standard
+        //                let date = DateChecking()
+        //                var tempdate = ""
+        //                //var tempcount = ""
+        //                var count = 0
+        //                let loadlogin = UserDefaults.standard
+        //                if let lastlog = loadlogin.string(forKey: "logindate"){
+        //                    tempdate = lastlog
+        //                    print(tempdate)
+        //                }
+        //                let tempcount = loadlogin.string(forKey: "counterlogin") ?? "0"
+        //                print(tempcount)
+        //                if date == tempdate{
+        //                    count = (Int(tempcount) ?? 1) + 1
+        //                    logindefault.set(date, forKey: "logindate")
+        //                    logindefault.set(count, forKey: "counterlogin")
+        //                }
+        //
+        //
+        //
+        //
+        //                //load lastlogin userdef
+        //                //kalo beda baru nambah counternya.
+        //
+        //
+        //
+        //
+        //
+        //          //  untuk itung visit apps harian
+        //
+        //            func DateChecking()->String{
+        //                var tempdate = ""
+        //                let dateformatter = DateFormatter()
+        //                dateformatter.dateStyle = .short
+        //                let DateString = dateformatter.string(from: Date())
+        //                tempdate = DateString
+        //                return tempdate
+        //            }
+                //current time
+        //        let timeformatter = DateFormatter()
+        //        timeformatter.timeStyle = .short
+        //        let TimeString = timeformatter.string(from: Date())
+                //print(TimeString)
+                //current date
+        //        let dateformatter = DateFormatter()
+        //        dateformatter.dateStyle = .short
+        //        let DateString = dateformatter.string(from: Date())
+                //print(DateString)
         
         // Do any additional setup after loading the view.
     }
+    
+    func initCheckLogin(){
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let currentDate = dateFormatter.string(from: date)
+        if templastLogin != currentDate {
+            tempLogin+=1
+            UserDefaults.standard.set(tempLogin, forKey: "login")
+            UserDefaults.standard.set(currentDate, forKey: "lastlogin")
+        }
+        print(templastLogin)
+        print(tempLogin)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -53,17 +53,7 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                    tempdate = loadDate
                 }
         initEditPicker(index: indexOperan)
-        
-        //current time
-//        let timeformatter = DateFormatter()
-//        timeformatter.timeStyle = .short
-//        let TimeString = timeformatter.string(from: Date())
-        //print(TimeString)
-        //current date
-//        let dateformatter = DateFormatter()
-//        dateformatter.dateStyle = .short
-//        let DateString = dateformatter.string(from: Date())
-        //print(DateString)
+//        
 
     }
     
