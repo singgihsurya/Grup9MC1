@@ -38,6 +38,7 @@
                         <viewLayoutGuide key="safeArea" id="33O-1d-Uaf"/>
                     </view>
                     <connections>
+                        <outlet property="achievementDesc" destination="eOI-hS-hJT" id="HBQ-Sy-bbn"/>
                         <outlet property="achievementImage" destination="Fyh-a2-SDu" id="wd1-qF-hjv"/>
                         <outlet property="achievementLabel" destination="Dlo-Lm-gB7" id="XCd-ff-Evi"/>
                     </connections>

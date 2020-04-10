@@ -12,5 +12,7 @@ import Foundation
 struct Achievement{
     var title:String?
     var imageName:String?
+    var desc:String?
+    var statusBadge:Bool?
     
 }

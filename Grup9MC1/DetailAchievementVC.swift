@@ -13,21 +13,25 @@ class DetailAchievementVC: UIViewController {
 
     var achievementimg = ""
     var achievementlbl = ""
+    var achievementdsc = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(achievementlbl)
         achievementLabel.text = achievementlbl
         achievementImage.image = UIImage(named: achievementimg)
+        achievementDesc.text = achievementdsc
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var achievementImage: UIImageView!
     @IBOutlet weak var achievementLabel: UILabel!
+    @IBOutlet weak var achievementDesc: UILabel!
     
     func initAchievement(achievement: Achievement){
         self.achievementlbl = achievement.title!
         self.achievementimg = achievement.imageName!
+        self.achievementdsc = achievement.desc!
     }
     
     
