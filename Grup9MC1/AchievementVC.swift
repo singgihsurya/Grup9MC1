@@ -24,7 +24,7 @@ class AchievementVC: UIViewController {
     }
     
     func initDataAchievement() {
-        let day1 = Achievement(title: "1 Day", imageName: "1_days_blur", desc: "", statusBadge: true)
+        let day1 = Achievement(title: "1 Day", imageName: "1_days_blur", desc: "anda mendapatkan badge ini ketika pertama kali login", statusBadge: true)
         let day7 = Achievement(title: "7 Day", imageName: "7_days_blur", desc: "", statusBadge: false)
         let day30 = Achievement(title: "30 Day", imageName: "30_days_blur", desc: "", statusBadge: false)
 
@@ -61,6 +61,7 @@ class AchievementVC: UIViewController {
 //                var pictBadges = ""
 //                var latestbadgesArray = [String]()
 //                let defaultload = UserDefaults.standard
+//                userdefaultnya ini nanti dari array achievement yang udah didapatin.
 //                if let badges = defaultload.stringArray(forKey: "makan") as? [String]{
 //                    latestbadgesArray = badges
 //                    if let tempnameimg = latestbadgesArray.last as? String{
