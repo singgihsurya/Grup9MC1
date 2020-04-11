@@ -16,7 +16,7 @@ var temptime = [String]()
 var tempeat = [String]()
 var tempdate = [String]()
 //private var timeString: String = ""
-var dayInt: Int = 0
+//var dayInt: Int = 0
 var dateString: String = ""
 
 var selectedNotification = 0
@@ -27,12 +27,13 @@ var selectedNotification = 0
 //    Notification(remind: "07.00 PM", routine: "Dinner", experience: 20),
 //]
 var experience = [
-    "Breakfast": 10,
-    "Lunch": 30,
-    "Dinner": 20,
+    "Breakfast": 100,
+    "Lunch": 300,
+    "Dinner": 200,
 ]
 
-var totalExperience = 500
+var currentLevel = 1
+var totalExperience = 0
 var totalLevel = 1000
 var progressBarVC: UIView!
 var progressLabelVC: UILabel!
@@ -74,8 +75,14 @@ class FoodventureViewController: UIViewController {
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short
         dateString = dateformatter.string(from: Date())
-        dayInt = getDayOfWeek(dateString)!
+//        dayInt = getDayOfWeek(dateString)!
 //                print(DateString)
+        
+        totalExperience = userDefault.integer(forKey: "total")
+        currentLevel = userDefault.integer(forKey: "level")
+        if currentLevel == 0 {
+            currentLevel = 1
+        }
         progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
         progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
     }
@@ -155,5 +162,25 @@ extension FoodventureViewController: UITableViewDelegate, UITableViewDataSource 
         let myCalendar = Calendar(identifier: .gregorian)
         let weekDay = myCalendar.component(.weekday, from: todayDate)
         return weekDay
+    }
+}
+
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
     }
 }

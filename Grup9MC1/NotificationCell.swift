@@ -41,18 +41,22 @@ class NotificationCell: UITableViewCell {
                 totalExperience += experience[tempeat[tempIndex]]!
                 progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
                 progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
-                tempeat.remove(at: tempIndex)
-                tempdate.remove(at: tempIndex)
-                temptime.remove(at: tempIndex)
-                userDefault.set(tempeat, forKey: "makan")
+//                tempeat.remove(at: tempIndex)
+                let dateformatter = DateFormatter()
+                dateformatter.dateStyle = .short
+                tempdate[tempIndex] = dateformatter.string(from: Date.tomorrow)
+//                temptime.remove(at: tempIndex)
+//                userDefault.set(tempeat, forKey: "makan")
                 userDefault.set(tempdate, forKey: "tanggal")
-                userDefault.set(temptime, forKey: "waktu")
+//                userDefault.set(temptime, forKey: "waktu")
+                userDefault.set(totalExperience, forKey: "total")
+                let templevel = countExperience()
+                userDefault.set(templevel, forKey: "level")
             }
         }
         if gestureRecognizer.state == .ended {            
             userDefault.synchronize()
             tableViewVC.reloadData()
-            countExperience()
         }
     }
 
@@ -63,14 +67,15 @@ class NotificationCell: UITableViewCell {
         
     }
     
-    func countExperience() {
+    func countExperience() -> Int {
         switch totalExperience {
         case 1000:
             levelLabelVC.text = "Level 2"
             totalLevel = 2000
             progressBarVC.frame.size.width = CGFloat(0)
+            return 2
         default:
-            return
+            return 1
         }
     }
 }
