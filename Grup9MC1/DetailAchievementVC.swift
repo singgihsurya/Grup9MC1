@@ -27,6 +27,9 @@ class DetailAchievementVC: UIViewController {
     @IBOutlet weak var achievementImage: UIImageView!
     @IBOutlet weak var achievementLabel: UILabel!
     @IBOutlet weak var achievementDesc: UILabel!
+    @IBAction func backBtn(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
     func initAchievement(achievement: Achievement){
         self.achievementlbl = achievement.title!
