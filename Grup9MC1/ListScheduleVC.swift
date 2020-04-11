@@ -61,8 +61,6 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             UserDefaults.standard.set(tempLogin, forKey: "login")
             UserDefaults.standard.set(currentDate, forKey: "lastlogin")
         }
-        print(templastLogin)
-        print(tempLogin)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,7 +80,6 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath as NSIndexPath
         index = indexPath.row
-        print(index)
         self.performSegue(withIdentifier: "editSegue", sender: self)
         index = 999
     }
