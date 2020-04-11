@@ -24,19 +24,19 @@ class AchievementVC: UIViewController {
     }
     
     func initDataAchievement() {
-        let day1 = Achievement(title: "1 Day", imageName: "tes")
-        let day7 = Achievement(title: "7 Day", imageName: "7_days_clear")
-        let day30 = Achievement(title: "30 Day", imageName: "30_days_clear")
+        let day1 = Achievement(title: "1 Day", imageName: "1_days_blur", desc: "anda mendapatkan badge ini ketika pertama kali login", statusBadge: true)
+        let day7 = Achievement(title: "7 Day", imageName: "7_days_blur", desc: "", statusBadge: false)
+        let day30 = Achievement(title: "30 Day", imageName: "30_days_blur", desc: "", statusBadge: false)
 
-        let level5 = Achievement(title: "Level 5", imageName: "level_5_clear")
-        let level10 = Achievement(title: "Level 10", imageName: "level_10_clear")
-        let level20 = Achievement(title: "Level 20", imageName: "level_20_clear")
-        let level50 = Achievement(title: "Level 50", imageName: "level_50_clear")
-        let level100 = Achievement(title: "Level 100", imageName: "level_100_clear")
+        let level5 = Achievement(title: "Level 5", imageName: "lvl_5_blur", desc: "", statusBadge: false)
+        let level10 = Achievement(title: "Level 10", imageName: "lvl_10_blur", desc: "", statusBadge: false)
+        let level20 = Achievement(title: "Level 20", imageName: "lvl_20_blur", desc: "", statusBadge: false)
+        let level50 = Achievement(title: "Level 50", imageName: "lvl_50_blur", desc: "", statusBadge: false)
+        let level100 = Achievement(title: "Level 100", imageName: "lvl_100_blur", desc: "", statusBadge: false)
         
-        let clear1day = Achievement(title: "Clear 1 Day", imageName: "makan_1_hari_clear")
-        let clear7day = Achievement(title: "Clear 7 Day", imageName: "makan_7_hari_clear")
-        let clear30day = Achievement(title: "Clear 30 Day", imageName: "makan_30_hari_clear")
+        let clear1day = Achievement(title: "Clear 1 Day", imageName: "eat_1d_blur", desc: "", statusBadge: false)
+        let clear7day = Achievement(title: "Clear 7 Day", imageName: "eat_7d_blur", desc: "", statusBadge: false)
+        let clear30day = Achievement(title: "Clear 30 Day", imageName: "eat_30d_blur", desc: "", statusBadge: false)
       
         dataAchievement.append(day1)
         dataAchievement.append(day7)
@@ -54,7 +54,22 @@ class AchievementVC: UIViewController {
      // trigger refresh collection view
      collectionView.reloadData()
     }
-
+    
+    
+//    untuk latest achievement-foodventure page
+//    func latestachievement(){
+//                var pictBadges = ""
+//                var latestbadgesArray = [String]()
+//                let defaultload = UserDefaults.standard
+//                userdefaultnya ini nanti dari array achievement yang udah didapatin.
+//                if let badges = defaultload.stringArray(forKey: "makan") as? [String]{
+//                    latestbadgesArray = badges
+//                    if let tempnameimg = latestbadgesArray.last as? String{
+//                        pictBadges = tempnameimg
+//                        print(pictBadges)
+//                    }
+//                }
+//    }
  
 
 }
@@ -83,14 +98,20 @@ extension AchievementVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     // MARK: mengatur layout view cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Lebar & tinggil cell
-        return CGSize(width: 110, height: 200)
+        return CGSize(width: 100, height: 130)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let achievement = dataAchievement[indexPath.row]
-        performSegue(withIdentifier: "detailAchievementSegue", sender: achievement)
-        //print(achievement)
-        tempImgAchievement = achievement.imageName!
-        tempLblAchievement = achievement.title!
+        if achievement.statusBadge == true{
+            performSegue(withIdentifier: "detailAchievementSegue", sender: achievement)
+            //print(achievement)
+            tempImgAchievement = achievement.imageName!
+            tempLblAchievement = achievement.title!
+        }else{
+            let alert = UIAlertController(title: "Achievement Unlock", message: "You can't see the detail of achievement now", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailAchievementSegue"{
