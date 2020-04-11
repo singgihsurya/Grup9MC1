@@ -30,11 +30,11 @@ class AchievementVC: UIViewController {
     }
     
     func initDataAchievement() {
-//        let loaddailylogin =  UserDefaults.standard
-//        if let tempcount = loaddailylogin.string(forKey: "dailylogin"){
-//            dailycount = tempcount.toInt()
-//        }
-        dailycount = 50
+        let loaddailylogin =  UserDefaults.standard
+        if let tempcount = loaddailylogin.object(forKey: "login") as? Int{
+            dailycount = tempcount
+        }
+
         level = 100
 //        if let templevel =  loaddailylogin.string(forKey: "level"){
 //            level = templevel

@@ -50,6 +50,7 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view.
     }
+    //check daily login -> harusnya di page foodventure
     func initCheckLogin(){
         let date = Date()
         let dateFormatter = DateFormatter()
