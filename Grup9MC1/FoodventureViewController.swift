@@ -15,7 +15,8 @@ let userDefault = UserDefaults.standard
 var temptime = [String]()
 var tempeat = [String]()
 var tempdate = [String]()
-private var timeString: String = ""
+//private var timeString: String = ""
+var dayInt: Int = 0
 var dateString: String = ""
 
 var selectedNotification = 0
@@ -65,14 +66,15 @@ class FoodventureViewController: UIViewController {
             tempdate = loadDate
         }
 //        current time
-        let timeformatter = DateFormatter()
-        timeformatter.timeStyle = .short
-        timeString = timeformatter.string(from: Date())
+//        let timeformatter = DateFormatter()
+//        timeformatter.timeStyle = .short
+//        timeString = timeformatter.string(from: Date())
 //                print(TimeString)
 //                current date
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short
         dateString = dateformatter.string(from: Date())
+        dayInt = getDayOfWeek(dateString)!
 //                print(DateString)
         progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
         progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
@@ -144,5 +146,14 @@ extension FoodventureViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedNotification = indexPath.row
+    }
+    
+    func getDayOfWeek(_ today:String) -> Int? {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let todayDate = formatter.date(from: today) else { return nil }
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: todayDate)
+        return weekDay
     }
 }

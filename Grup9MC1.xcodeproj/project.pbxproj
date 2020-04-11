@@ -11,6 +11,7 @@
 		A1517A86243908A80040C21F /* Foodventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1517A85243908A80040C21F /* Foodventure.swift */; };
 		A15B3665243C1F0600D5D32E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15B3664243C1F0600D5D32E /* Assets.xcassets */; };
 		A15B3667243C49AA00D5D32E /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B3666243C49AA00D5D32E /* NotificationCell.swift */; };
+		A191FEE7244019EF00BACC55 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191FEE6244019EF00BACC55 /* GradientView.swift */; };
 		E906CDD4243C67B200C5AA0A /* TimeManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906CDD3243C67B200C5AA0A /* TimeManageVC.swift */; };
 		E906CDD8243C971F00C5AA0A /* ListScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906CDD7243C971F00C5AA0A /* ListScheduleVC.swift */; };
 		E9854FDF243C46A9004571BE /* TimeManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9854FDE243C46A9004571BE /* TimeManage.storyboard */; };
@@ -32,6 +33,7 @@
 		A1517A85243908A80040C21F /* Foodventure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodventure.swift; sourceTree = "<group>"; };
 		A15B3664243C1F0600D5D32E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A15B3666243C49AA00D5D32E /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		A191FEE6244019EF00BACC55 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		E906CDD3243C67B200C5AA0A /* TimeManageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManageVC.swift; sourceTree = "<group>"; };
 		E906CDD7243C971F00C5AA0A /* ListScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScheduleVC.swift; sourceTree = "<group>"; };
 		E9854FDE243C46A9004571BE /* TimeManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeManage.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E9854FDE243C46A9004571BE /* TimeManage.storyboard */,
 				E906CDD3243C67B200C5AA0A /* TimeManageVC.swift */,
 				E906CDD7243C971F00C5AA0A /* ListScheduleVC.swift */,
+				A191FEE6244019EF00BACC55 /* GradientView.swift */,
 			);
 			path = Grup9MC1;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				E9E0C954243B7B8B006A254E /* AchievementCell.swift in Sources */,
 				E906CDD8243C971F00C5AA0A /* ListScheduleVC.swift in Sources */,
 				E9AEED6B2435D4600043A8AB /* SceneDelegate.swift in Sources */,
+				A191FEE7244019EF00BACC55 /* GradientView.swift in Sources */,
 				A15B3667243C49AA00D5D32E /* NotificationCell.swift in Sources */,
 				E9E0C956243B7BE8006A254E /* Achievement.swift in Sources */,
 			);
