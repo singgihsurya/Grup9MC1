@@ -340,6 +340,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Foodventure" id="jnq-ja-Lgs"/>
                     <connections>
+                        <outlet property="latestImage" destination="0AN-Eh-H9X" id="1xR-MU-3qz"/>
                         <outlet property="levelLabel" destination="5YX-Pz-Ekb" id="bnt-mN-ZWK"/>
                         <outlet property="progressBar" destination="Bre-LD-mJE" id="0J8-Jn-oGR"/>
                         <outlet property="progressLabel" destination="zV8-Ir-ZNO" id="6af-di-Lah"/>
