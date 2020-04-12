@@ -43,9 +43,12 @@ var tableViewVC: UITableView!
 class FoodventureViewController: UIViewController {
     
     var countArr = 0
+    var tempLogin = 0
+    var templastLogin = ""
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var latestImage: UIImageView!
     @IBOutlet weak var progressBar: UIView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
@@ -85,6 +88,40 @@ class FoodventureViewController: UIViewController {
         }
         progressBarVC.frame.size.width = CGFloat(totalExperience) * 0.183
         progressLabelVC.text = "\(totalExperience)/\(totalLevel)"
+        if let loadLastLogin = userDefault.string(forKey: "lastlogin"){
+            templastLogin = loadLastLogin
+        }
+        tempLogin = userDefault.integer(forKey: "login")
+        initCheckLogin()
+        latestachievement()
+    }
+    
+    //check daily login -> harusnya di page foodventure
+    func initCheckLogin(){
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let currentDate = dateFormatter.string(from: date)
+        if templastLogin != dateString {
+            tempLogin+=1
+            userDefault.set(tempLogin, forKey: "login")
+            userDefault.set(currentDate, forKey: "lastlogin")
+        }
+    }
+    //    untuk latest achievement-foodventure page
+    func latestachievement(){
+        var pictBadges = ""
+        var latestbadgesArray = [String]()
+        let defaultload = UserDefaults.standard
+//                userdefaultnya ini nanti dari array achievement yang udah didapatin.
+        if let badges = defaultload.stringArray(forKey: "latestbadge"){
+            latestbadgesArray = badges
+            print(badges)
+            if let tempnameimg = latestbadgesArray.last{
+                pictBadges = tempnameimg
+                latestImage.image = #imageLiteral(resourceName: pictBadges)
+            }
+        }
     }
 }
 
