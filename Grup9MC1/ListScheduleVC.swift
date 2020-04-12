@@ -14,6 +14,8 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tempeat = [String]()
     var tempdate = [String]()
     var selectedIndexPath: NSIndexPath = NSIndexPath()
+    var tempLogin = 0
+    var templastLogin = ""
     var index = 999
     
     @IBOutlet weak var listTableView: UITableView!
@@ -36,11 +38,31 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let loadDate = defaultload.stringArray(forKey: "tanggal") as? [String]{
             tempdate = loadDate
         }
+        if let loadLastLogin = defaultload.string(forKey: "lastlogin") as? String{
+            templastLogin = loadLastLogin
+        }
+        if let loadLogin = defaultload.integer(forKey: "login") as? Int{
+            tempLogin = loadLogin
+        }
+        initCheckLogin()
         
         
         
         // Do any additional setup after loading the view.
     }
+    //check daily login -> harusnya di page foodventure
+    func initCheckLogin(){
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let currentDate = dateFormatter.string(from: date)
+        if templastLogin != currentDate {
+            tempLogin+=1
+            UserDefaults.standard.set(tempLogin, forKey: "login")
+            UserDefaults.standard.set(currentDate, forKey: "lastlogin")
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -58,7 +80,6 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath as NSIndexPath
         index = indexPath.row
-        print(index)
         self.performSegue(withIdentifier: "editSegue", sender: self)
         index = 999
     }
