@@ -49,7 +49,7 @@ class AchievementVC: UIViewController {
         
         let savebadge = UserDefaults.standard
 
-        let day1 = Achievement(title: "1 Day", imageName: "1_days", desc: "anda mendapatkan badge ini ketika pertama kali login", statusBadge: true)
+        let day1 = Achievement(title: "1 Day", imageName: "1_days", desc: "You’ll get this achievment in the your first login day!", statusBadge: true)
         dataAchievement.append(day1)
         var keterangan = replaceArrayValue(tester: day1.imageName!)
         if keterangan == "tidakada"{
@@ -60,7 +60,7 @@ class AchievementVC: UIViewController {
         savebadge.set(getAchievement, forKey: "latestbadge")
         
         if dailycount >= 7{
-            let day7 = Achievement(title: "7 Day", imageName: "7_days", desc: "", statusBadge: true)
+            let day7 = Achievement(title: "7 Day", imageName: "7_days", desc: "You’ll get this achievment if you login for 7 days!", statusBadge: true)
             dataAchievement.append(day7)
             var keterangan = replaceArrayValue(tester: day7.imageName!)
             if keterangan == "tidakada"{
@@ -75,7 +75,7 @@ class AchievementVC: UIViewController {
         }
         
         if dailycount >= 30{
-             let day30 = Achievement(title: "30 Day", imageName: "30_days", desc: "", statusBadge: true)
+             let day30 = Achievement(title: "30 Day", imageName: "30_days", desc: "You’ll get this achievment if you login for 30 days!", statusBadge: true)
             dataAchievement.append(day30)
             var keterangan = replaceArrayValue(tester: day30.imageName!)
             if keterangan == "tidakada"{
@@ -90,7 +90,7 @@ class AchievementVC: UIViewController {
         }
         
         if level >= 5{
-            let level5 = Achievement(title: "Level 5", imageName: "lvl_5", desc: "", statusBadge: true)
+            let level5 = Achievement(title: "Level 5", imageName: "lvl_5", desc: "You achieved level 5, Congrats!", statusBadge: true)
              dataAchievement.append(level5)
             var keterangan = replaceArrayValue(tester: level5.imageName!)
             if keterangan == "tidakada"{
@@ -105,7 +105,7 @@ class AchievementVC: UIViewController {
         }
         
         if level >= 10{
-            let level10 = Achievement(title: "Level 10", imageName: "lvl_10", desc: "", statusBadge: true)
+            let level10 = Achievement(title: "Level 10", imageName: "lvl_10", desc: "You achieved level 10, Congrats!", statusBadge: true)
              dataAchievement.append(level10)
             var keterangan = replaceArrayValue(tester: level10.imageName!)
                if keterangan == "tidakada"{
@@ -120,7 +120,7 @@ class AchievementVC: UIViewController {
         }
         
         if level >= 20 {
-            let level20 = Achievement(title: "Level 20", imageName: "lvl_20", desc: "", statusBadge: true)
+            let level20 = Achievement(title: "Level 20", imageName: "lvl_20", desc: "You achieved level 20, Congrats!", statusBadge: true)
             dataAchievement.append(level20)
             var keterangan = replaceArrayValue(tester: level20.imageName!)
             if keterangan == "tidakada"{
@@ -135,7 +135,7 @@ class AchievementVC: UIViewController {
         }
         
         if level >= 50 {
-            let level50 = Achievement(title: "Level 50", imageName: "lvl_50", desc: "", statusBadge: true)
+            let level50 = Achievement(title: "Level 50", imageName: "lvl_50", desc: "You achieved level 50, Congrats!", statusBadge: true)
             dataAchievement.append(level50)
             var keterangan = replaceArrayValue(tester: level50.imageName!)
             if keterangan == "tidakada"{
@@ -150,7 +150,7 @@ class AchievementVC: UIViewController {
         }
         
         if level >= 100 {
-            let level100 = Achievement(title: "Level 100", imageName: "lvl_100", desc: "", statusBadge: true)
+            let level100 = Achievement(title: "Level 100", imageName: "lvl_100", desc: "You achieved level 100, Congrats!", statusBadge: true)
             dataAchievement.append(level100)
             var keterangan = replaceArrayValue(tester: level100.imageName!)
             if keterangan == "tidakada"{
@@ -165,9 +165,9 @@ class AchievementVC: UIViewController {
         }
   
         
-        let clear1day = Achievement(title: "Clear 1 Day", imageName: "eat_1d_blur", desc: "", statusBadge: false)
-        let clear7day = Achievement(title: "Clear 7 Day", imageName: "eat_7d_blur", desc: "", statusBadge: false)
-        let clear30day = Achievement(title: "Clear 30 Day", imageName: "eat_30d_blur", desc: "", statusBadge: false)
+        let clear1day = Achievement(title: "Clear 1 Day", imageName: "eat_1d_blur", desc: "You’ll get this achievment if you eat regularly for 1 days", statusBadge: false)
+        let clear7day = Achievement(title: "Clear 7 Day", imageName: "eat_7d_blur", desc: "You’ll get this achievment if you eat regularly for 7 days", statusBadge: false)
+        let clear30day = Achievement(title: "Clear 30 Day", imageName: "eat_30d_blur", desc: "You’ll get this achievment if you eat regularly for 30 days", statusBadge: false)
       
         dataAchievement.append(clear1day)
         dataAchievement.append(clear7day)
