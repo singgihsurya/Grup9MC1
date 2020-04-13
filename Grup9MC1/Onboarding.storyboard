@@ -47,7 +47,7 @@
                                 <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="26"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="QQw-tt-ymb" kind="presentation" modalPresentationStyle="fullScreen" id="UW6-Kd-flA"/>
+                                    <segue destination="QQw-tt-ymb" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="UW6-Kd-flA"/>
                                 </connections>
                             </button>
                         </subviews>
