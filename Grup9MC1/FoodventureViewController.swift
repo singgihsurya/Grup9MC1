@@ -15,7 +15,7 @@ let userDefault = UserDefaults.standard
 var temptime = [String]()
 var tempeat = [String]()
 var tempdate = [String]()
-//private var timeString: String = ""
+var timeString: String = ""
 //var dayInt: Int = 0
 var dateString: String = ""
 
@@ -32,6 +32,8 @@ var experience = [
     "Dinner": 200,
 ]
 
+var flagArr = [Bool]()
+
 var currentLevel = 1
 var totalExperience = 0
 var totalLevel = 1000
@@ -41,6 +43,8 @@ var levelLabelVC: UILabel!
 var tableViewVC: UITableView!
 
 class FoodventureViewController: UIViewController {
+    
+    var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     var countArr = 0
     var tempLogin = 0
@@ -53,6 +57,7 @@ class FoodventureViewController: UIViewController {
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     override func viewDidLoad() {
+//        self.tableView.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         progressBarVC = progressBar
@@ -70,9 +75,9 @@ class FoodventureViewController: UIViewController {
             tempdate = loadDate
         }
 //        current time
-//        let timeformatter = DateFormatter()
-//        timeformatter.timeStyle = .short
-//        timeString = timeformatter.string(from: Date())
+        let timeformatter = DateFormatter()
+        timeformatter.timeStyle = .short
+        timeString = timeformatter.string(from: Date())
 //                print(TimeString)
 //                current date
         let dateformatter = DateFormatter()
@@ -94,7 +99,21 @@ class FoodventureViewController: UIViewController {
         tempLogin = userDefault.integer(forKey: "login")
         initCheckLogin()
         latestachievement()
+        
+//        flagArr.reserveCapacity(temptime.count)
+        if let loadflag = userDefault.array(forKey: "sudah"){
+            flagArr = loadflag as! [Bool]
+        }else{
+            flagArr = Array<Bool>(repeating: false, count: temptime.count)
+        }
+        checkTimeNotification()
+//        tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifier)
+        
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        checkTimeNotification()
+//    }
     
     //check daily login -> harusnya di page foodventure
     func initCheckLogin(){
@@ -121,6 +140,36 @@ class FoodventureViewController: UIViewController {
                 pictBadges = tempnameimg
                 latestImage.image = #imageLiteral(resourceName: pictBadges)
             }
+        }
+    }
+    
+    func checkTimeNotification(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+//        let currentCell = tableView.cellForRow(at: IndexPath(index: 0)) as! NotificationCell
+        var tempIndex = 0
+        for time in temptime {
+            if time != "" {
+                if formatter.date(from: timeString)! >= formatter.date(from: time)! {
+                    flagArr[tempIndex] = true
+//                    let alert = UIAlertController(title: "Alert", message: "It's time to eat your \(tempeat[tempIndex]) now", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+//                    self.present(alert, animated: true)
+                    let alert = UIAlertController(title: "",
+                                                  message: "It's time to eat your \(tempeat[tempIndex]) now",
+                                                  preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Okay, I will eat", style: .default) { (action) in
+                        self.appDelegate?.scheduleNotification(notificationType: tempeat[tempIndex])
+                    }
+                    alert.addAction(okAction)
+                    present(alert, animated: true, completion: nil)
+                    userDefault.set(flagArr, forKey: "sudah")
+                    userDefault.synchronize()
+                    tableView.reloadData()
+                    break
+                }
+            }
+            tempIndex += 1
         }
     }
 }
@@ -181,7 +230,12 @@ extension FoodventureViewController: UITableViewDelegate, UITableViewDataSource 
             if date == dateString {
                 cell.remindLabel.text = time
                 cell.routineLabel.text = eat
-                cell.experienceLabel.text = String(experience[eat]!) + " FP"
+                if flagArr[indexPath.row] {
+                    cell.experienceLabel.text = String(experience[eat]!) + " FP"
+                    cell.experienceLabel.isHidden = false
+                }else{
+                    cell.experienceLabel.isHidden = true
+                }
                 return cell
             }
         }

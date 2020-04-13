@@ -45,11 +45,13 @@ class NotificationCell: UITableViewCell {
                 let dateformatter = DateFormatter()
                 dateformatter.dateStyle = .short
                 tempdate[tempIndex] = dateformatter.string(from: Date.tomorrow)
+                flagArr[tempIndex] = false
 //                temptime.remove(at: tempIndex)
 //                userDefault.set(tempeat, forKey: "makan")
                 userDefault.set(tempdate, forKey: "tanggal")
 //                userDefault.set(temptime, forKey: "waktu")
                 userDefault.set(totalExperience, forKey: "total")
+                userDefault.set(flagArr, forKey: "sudah")
                 let templevel = countExperience()
                 userDefault.set(templevel, forKey: "level")
             }
