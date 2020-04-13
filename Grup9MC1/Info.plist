@@ -36,15 +36,15 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Onboarding</string>
+					<string>Tabbar</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>Onboarding</string>
+	<string>Tabbar</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Onboarding</string>
+	<string>Tabbar</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

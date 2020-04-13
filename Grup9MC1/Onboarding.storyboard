@@ -60,7 +60,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="1tb-gE-ARh">
             <objects>
-                <viewController id="SsE-zR-WAB" customClass="OnboardingViewController" customModule="Grup9MC1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SsE-zR-WAB" customClass="OnboardingViewController" customModule="Grup9MC1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BPP-B7-eRu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
