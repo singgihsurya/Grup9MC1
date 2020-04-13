@@ -13,9 +13,11 @@ class DataViewController: UIViewController {
     @IBOutlet weak var onBoardImageView: UIImageView!
     @IBOutlet weak var onBoardLabel: UILabel!
     @IBOutlet weak var onBoardSkipButton: UIButton!
+    @IBOutlet weak var onBoardSubtitle: UILabel!
     
     var displayText: String?
     var displayImage: String?
+    var displaySubtitle: String?
     var index: Int?
     
     
@@ -24,6 +26,7 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
         onBoardImageView.image = UIImage(named: displayImage ?? "")
         onBoardLabel.text = displayText
+        onBoardSubtitle.text = displaySubtitle
         // Do any additional setup after loading the view.
     }
     

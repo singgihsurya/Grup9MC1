@@ -13,9 +13,11 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     
-    let onboardsLabel = ["Halaman 1", "Halaman 2", "Halaman 3"]
+    let onboardsLabel = ["SCHEDULE", "MEALTIME", "COLLECT BADGES"]
     
-    let onboardsImage = ["Char1Red", "Char1Green", "Char1Yellow"]
+    let onboardSubtitle = ["Set your daily mealtime", "Eat your meal", "Collect more badges"]
+    
+    let onboardsImage = ["onboardingSchedule", "onboardingMeal", "onboardingMedal"]
     
     var currentViewControllerIndex = 0
     
@@ -66,6 +68,7 @@ class OnboardingViewController: UIViewController {
         dataViewController.index = index
         dataViewController.displayText = onboardsLabel[index]
         dataViewController.displayImage = onboardsImage[index]
+        dataViewController.displaySubtitle = onboardSubtitle[index]
            return dataViewController
        }
        
