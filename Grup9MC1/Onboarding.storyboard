@@ -32,6 +32,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Skip"/>
+                                <connections>
+                                    <segue destination="QQw-tt-ymb" kind="presentation" modalPresentationStyle="fullScreen" id="UW6-Kd-flA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Fv-OAN">
                                 <rect key="frame" x="87" y="694" width="240" height="43"/>
@@ -77,7 +80,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuA-ym-U3Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1640.5797101449277" y="-54.241071428571423"/>
+            <point key="canvasLocation" x="1625" y="383"/>
+        </scene>
+        <!--Tabbar-->
+        <scene sceneID="Kwr-BQ-Umj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tabbar" id="QQw-tt-ymb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z17-nT-f35"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAq-aI-6s6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="-17"/>
         </scene>
     </scenes>
 </document>
