@@ -10,6 +10,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
+    @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     
     let onboardsLabel = ["Halaman 1", "Halaman 2", "Halaman 3"]

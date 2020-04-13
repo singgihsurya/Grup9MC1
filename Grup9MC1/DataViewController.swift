@@ -12,6 +12,7 @@ class DataViewController: UIViewController {
 
     @IBOutlet weak var onBoardImageView: UIImageView!
     @IBOutlet weak var onBoardLabel: UILabel!
+    @IBOutlet weak var onBoardSkipButton: UIButton!
     
     var displayText: String?
     var displayImage: String?
