@@ -128,12 +128,18 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         arrayMakan = tempeat
         arrayTime = temptime
         
-        if setTime == ""{
+        if setTime == "" || setDate == ""{
             let timeFormatter = DateFormatter()
             timeFormatter.timeStyle = DateFormatter.Style.short
             let strTime = timeFormatter.string(from: timePicker.date)
             //print(strTime)
             setTime =  strTime
+            
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = .short
+            let strDate = dateformatter.string(from: timePicker.date)
+            //print(strDate)
+            setDate =  strDate
         }
         
         if setCategoryMakan == ""{

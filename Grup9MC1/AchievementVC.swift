@@ -24,6 +24,7 @@ class AchievementVC: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        dataAchievement.removeAll()
         initDataAchievement()
         collectionView.backgroundColor = #colorLiteral(red: 0.8945240378, green: 0.8995351195, blue: 0.9118962884, alpha: 1)
         // Do any additional setup after loading the view.
