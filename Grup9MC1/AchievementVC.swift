@@ -35,10 +35,10 @@ class AchievementVC: UIViewController {
             dailycount = tempcount
         }
 
-        level = 100
-//        if let templevel =  loaddailylogin.string(forKey: "level"){
-//            level = templevel
-//        }
+//        level = 100
+        if let templevel =  loaddailylogin.object(forKey: "level") as? Int{
+            level = templevel
+        }
       
         let loadbadge = UserDefaults.standard
         if let tempbadge = loadbadge.stringArray(forKey: "latestbadge"){

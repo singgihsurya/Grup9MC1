@@ -128,6 +128,13 @@ class TimeManageVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         arrayMakan = tempeat
         arrayTime = temptime
         
+        if setTime == ""{
+            let timeFormatter = DateFormatter()
+            timeFormatter.timeStyle = DateFormatter.Style.short
+            let strTime = timeFormatter.string(from: timePicker.date)
+            //print(strTime)
+            setTime =  strTime
+        }
         
         if setCategoryMakan == ""{
             setCategoryMakan = "Breakfast"
