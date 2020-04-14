@@ -44,7 +44,7 @@ class ListScheduleVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let loadLogin = defaultload.integer(forKey: "login") as? Int{
             tempLogin = loadLogin
         }
-        initCheckLogin()
+//        initCheckLogin()
         
         
         

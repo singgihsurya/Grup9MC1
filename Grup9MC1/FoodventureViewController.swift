@@ -102,11 +102,12 @@ class FoodventureViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let currentDate = dateFormatter.string(from: date)
-        if templastLogin != dateString {
+        if templastLogin != currentDate {
             tempLogin+=1
             userDefault.set(tempLogin, forKey: "login")
             userDefault.set(currentDate, forKey: "lastlogin")
         }
+        print(tempLogin)
     }
     //    untuk latest achievement-foodventure page
     func latestachievement(){
