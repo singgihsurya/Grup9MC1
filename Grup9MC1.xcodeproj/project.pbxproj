@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46642A8A243C1A99008B573F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46642A89243C1A99008B573F /* Onboarding.storyboard */; };
+		466B4EC3243CAE5A0015D82B /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B4EC2243CAE5A0015D82B /* DataViewController.swift */; };
+		466B4EC5243CAF980015D82B /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B4EC4243CAF980015D82B /* CustomPageViewController.swift */; };
+		466B4EC7243CBB410015D82B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B4EC6243CBB410015D82B /* OnboardingViewController.swift */; };
 		A1517A84243908920040C21F /* FoodventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1517A83243908920040C21F /* FoodventureViewController.swift */; };
 		A1517A86243908A80040C21F /* Foodventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1517A85243908A80040C21F /* Foodventure.swift */; };
 		A15B3665243C1F0600D5D32E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15B3664243C1F0600D5D32E /* Assets.xcassets */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46642A89243C1A99008B573F /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		466B4EC2243CAE5A0015D82B /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		466B4EC4243CAF980015D82B /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		466B4EC6243CBB410015D82B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A1517A83243908920040C21F /* FoodventureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodventureViewController.swift; sourceTree = "<group>"; };
 		A1517A85243908A80040C21F /* Foodventure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodventure.swift; sourceTree = "<group>"; };
 		A15B3664243C1F0600D5D32E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +110,10 @@
 				E906CDD3243C67B200C5AA0A /* TimeManageVC.swift */,
 				E906CDD7243C971F00C5AA0A /* ListScheduleVC.swift */,
 				A191FEE6244019EF00BACC55 /* GradientView.swift */,
+				46642A89243C1A99008B573F /* Onboarding.storyboard */,
+				466B4EC2243CAE5A0015D82B /* DataViewController.swift */,
+				466B4EC4243CAF980015D82B /* CustomPageViewController.swift */,
+				466B4EC6243CBB410015D82B /* OnboardingViewController.swift */,
 			);
 			path = Grup9MC1;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 				E9AEED752435D4610043A8AB /* LaunchScreen.storyboard in Resources */,
 				E9E0C958243B7E47006A254E /* DetailAchievement.storyboard in Resources */,
 				E9854FDF243C46A9004571BE /* TimeManage.storyboard in Resources */,
+				46642A8A243C1A99008B573F /* Onboarding.storyboard in Resources */,
 				E9FC90322438290E00AB36CD /* Tabbar.storyboard in Resources */,
 				A15B3665243C1F0600D5D32E /* Assets.xcassets in Resources */,
 				E9AEED702435D4600043A8AB /* Main.storyboard in Resources */,
@@ -189,10 +202,13 @@
 				E9E0C95C243B812C006A254E /* DetailAchievementVC.swift in Sources */,
 				E9E0C954243B7B8B006A254E /* AchievementCell.swift in Sources */,
 				E906CDD8243C971F00C5AA0A /* ListScheduleVC.swift in Sources */,
+				466B4EC7243CBB410015D82B /* OnboardingViewController.swift in Sources */,
 				E9AEED6B2435D4600043A8AB /* SceneDelegate.swift in Sources */,
 				A191FEE7244019EF00BACC55 /* GradientView.swift in Sources */,
 				A15B3667243C49AA00D5D32E /* NotificationCell.swift in Sources */,
 				E9E0C956243B7BE8006A254E /* Achievement.swift in Sources */,
+				466B4EC3243CAE5A0015D82B /* DataViewController.swift in Sources */,
+				466B4EC5243CAF980015D82B /* CustomPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

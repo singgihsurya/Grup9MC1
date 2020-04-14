@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("User has declined notifications")
             }
         }
+        
+        let pageControl = UIPageControl.appearance()
+        pageControl.currentPageIndicatorTintColor = .blue
+        pageControl.pageIndicatorTintColor = .lightGray
+        
+        
         return true
     }
 
